@@ -17,8 +17,7 @@ WORKDIR /tool
 RUN pip install -r requirements.txt && rm /root/.cache/ -r
 
 # make pebble user env
-RUN adduser --disabled-password --gecos "" --ingroup users pebble && \
-    echo "pebble ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+RUN adduser -D -g "" pebble users && \
     chmod -R 777 /tool && \
     mkdir -p /home/pebble/.pebble-sdk/ && \
     chown -R pebble:users /home/pebble/.pebble-sdk && \
@@ -28,7 +27,8 @@ USER pebble
 
 WORKDIR /pebble
 VOLUME  /pebble
+VOLUME  /home/pebble/.pebble-sdk
 
 ENTRYPOINT ["/usr/bin/python", "/tool/pebble.py"]
 
-RUN ["-h"]
+CMD ["--help"]
