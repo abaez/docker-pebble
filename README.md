@@ -11,6 +11,12 @@ You must accept the [Pebble Terms of Use][4] and the [SDK License Agreement][5] 
 
 The container provides you with an install of [pebble-tool] for you to use as a full environment. As such, it allows for everything you can think of to develope on pebble with the luxury of not actually having to install the sdk(unless you want to) in your local environment.
 
+The entrypoint of the container is written for simple use of the [pebble-tool]:
+
+``` dockerfile
+ENTRYPOINT ["/usr/bin/python", "/tool/pebble.py"]
+```
+
 ### USAGE
 
 The container runs [pebble-tool] as the executable. As such, you need to download the sdk to a local directory if you want to use again:
