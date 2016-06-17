@@ -58,7 +58,7 @@ docker-compose run pebble sdk install latest
 And as an added bonus in lazyness, you can alias the docker-compose to `pebble` and run with less typing if you so wish:
 
 ``` bash
-alias pebble="docker-sompose run pebble"
+alias pebble="docker-compose run pebble"
 pebble build
 ```
 
