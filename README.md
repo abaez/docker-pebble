@@ -19,9 +19,10 @@ ENTRYPOINT ["/usr/bin/python", "/tool/pebble.py"]
 
 ### USAGE
 
-The container runs [pebble-tool] as the executable. As such, you need to download the sdk to a local directory if you want to use again:
+The container runs [pebble-tool] as the executable. As such, you need to download the sdk to a local directory if you want to use again. Do note, the container is running under a user:group = **pebble:users**. Meaning if you want to be able to download the sdk locally, you should make the directory mutable by the group **users** or accessible by **others**:
 
 ``` bash
+chmod g=rwx <chosen local dir>
 docker run -it \
     -v <chosen local dir>:/home/pebble/.pebble-sdk \
     abaez/pebble sdk install latest

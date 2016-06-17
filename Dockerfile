@@ -17,7 +17,7 @@ WORKDIR /tool
 RUN pip install -r requirements.txt && rm /root/.cache/ -r
 
 # make pebble user env
-RUN adduser -D -g "" pebble users && \
+RUN adduser -D -g "" -G users pebble && \
     chmod -R 777 /tool && \
     mkdir -p /home/pebble/.pebble-sdk/ && \
     chown -R pebble:users /home/pebble/.pebble-sdk && \
