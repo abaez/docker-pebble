@@ -14,7 +14,7 @@ RUN curl -s https://bootstrap.pypa.io/get-pip.py | python -
 # install pebble tool
 RUN git clone -b $PVER https://github.com/pebble/pebble-tool.git /tool
 WORKDIR /tool
-RUN pip install -r requirements.txt && rm /root/.cache/ -r
+RUN pip install -r requirements.txt virtualenv && rm /root/.cache/ -r
 
 # make pebble user env
 RUN adduser -D -g "" -G users pebble && \
