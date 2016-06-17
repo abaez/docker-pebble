@@ -22,8 +22,8 @@ ENTRYPOINT ["/usr/bin/python", "/tool/pebble.py"]
 The container runs [pebble-tool] as the executable. As such, you need to download the sdk to a local directory if you want to use again:
 
 ``` bash
-docker run \
-    -v <chosen local dir>:~/.pebble-sdk \
+docker run -it \
+    -v <chosen local dir>:/home/pebble/.pebble-sdk \
     abaez/pebble sdk install latest
 ```
 
@@ -31,7 +31,7 @@ Afterwards, if you want to do a task on a project, you have to mount the `/pebbl
 
 ``` bash
 docker run \
-    -v <chosen local dir>:~/.peble-sdk \
+    -v <chosen local dir>:/home/pebble/.peble-sdk \
     -v <path to project>:/pebble \
     abaez/pebble build
 ```
