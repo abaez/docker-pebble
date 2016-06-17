@@ -37,7 +37,33 @@ docker run \
     abaez/pebble build
 ```
 
+#### docker-compose
+
+You can achieve all of the above by having a [docker-compose] file to have the configuration:
+
+``` yaml
+pebble:
+    image: abaez/pebble
+    volume:
+        <chosen local dir>:/home/pebble/.pebble-sek
+        <path to project>:/pebble
+```
+
+If following the [docker-compose] route, then all you would need to do is run the commands through compose:
+
+```
+docker-compose run pebble sdk install latest
+```
+
+And as an added bonus in lazyness, you can alias the docker-compose to `pebble` and run with less typing if you so wish:
+
+``` bash
+alias pebble="docker-sompose run pebble"
+pebble build
+```
+
 [pebble-tool]: https://github.com/pebble/pebble-tool
+[docker-compose]: https://docs.docker.com/compose/overview/
 [2i]: https://img.shields.io/badge/twitter-a_baez-blue.svg
 [2p]: https://twitter.com/a_baez
 [3i]: https://img.shields.io/badge/license-MIT-green.svg
