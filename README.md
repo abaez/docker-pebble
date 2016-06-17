@@ -16,7 +16,9 @@ The container provides you with an install of [pebble-tool] for you to use as a 
 The container runs [pebble-tool] as the executable. As such, you need to download the sdk to a local directory if you want to use again:
 
 ``` bash
-docker run -v <chosen local dir>:~/.pebble-sdk abaez/pebble sdk install latest
+docker run \
+    -v <chosen local dir>:~/.pebble-sdk \
+    abaez/pebble sdk install latest
 ```
 
 Afterwards, if you want to do a task on a project, you have to mount the `/pebble` directory like so:
@@ -25,7 +27,7 @@ Afterwards, if you want to do a task on a project, you have to mount the `/pebbl
 docker run \
     -v <chosen local dir>:~/.peble-sdk \
     -v <path to project>:/pebble \
-    build
+    abaez/pebble build
 ```
 
 [pebble-tool]: https://github.com/pebble/pebble-tool
