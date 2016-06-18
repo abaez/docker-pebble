@@ -44,9 +44,9 @@ You can achieve all of the above by having a [docker-compose] file to have the c
 ``` yaml
 pebble:
     image: abaez/pebble
-    volume:
-        <chosen local dir>:/home/pebble/.pebble-sek
-        <path to project>:/pebble
+    volumes:
+        - <chosen local dir>:/home/pebble/.pebble-sdk
+        - <path to project>:/pebble
 ```
 
 If following the [docker-compose] route, then all you would need to do is run the commands through compose:
